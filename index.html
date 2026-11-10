@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090c15">
+  <title>BRIM 3027 — Floodline</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="BRIM 3027 home"><span class="brand-mark">B</span><span>BRIM<span class="brand-year"> / 3027</span></span></a>
+      <div class="chapter"><span class="live-dot"></span> FLOODLINE <span class="chapter-slash">/</span> CHAPTER 01</div>
+      <div class="top-right"><span class="weather">◒ &nbsp; MARÉ ALTA · 28°</span><button id="soundBtn" class="icon-btn" aria-label="Toggle sound">♫</button><button id="helpBtn" class="icon-btn" aria-label="Controls">?</button></div>
+    </header>
+    <section class="game-frame" aria-label="Game screen">
+      <canvas id="game" width="960" height="600" aria-label="BRIM city game. Use WASD or arrow keys to move; E interact; Shift run."></canvas>
+      <div class="scanline"></div>
+      <div class="map-label"><span class="map-coord">23°32' S &nbsp; 46°38' W</span><br><span id="zoneName">BAIXADA · SETOR 09</span></div>
+      <div class="objective"><span class="objective-icon">◇</span><div><small>OBJETIVO ATUAL</small><span id="objectiveText">Encontre a entrada do arquivo municipal</span></div></div>
+      <div class="party-strip" id="partyStrip" aria-label="Party status"></div>
+      <div class="toast" id="toast" role="status"></div>
+      <div class="dialogue hidden" id="dialogue"><div class="dialogue-speaker" id="dialogueSpeaker"></div><p id="dialogueText"></p><button id="dialogueContinue">CONTINUAR <span>↵</span></button></div>
+      <div class="battle hidden" id="battle">
+        <div class="battle-heading"><span class="battle-kicker">ENCONTRO HOSTIL · SETOR 09</span><span id="battleRound">ROUND 01</span></div>
+        <div class="enemy-stage" id="enemyStage"></div>
+        <div class="battle-bottom"><div class="turn-info"><span class="turn-glyph">✳</span><div><small id="turnSub">ESCOLHA UMA AÇÃO</small><strong id="turnName">SUA VEZ</strong></div></div><div class="battle-actions" id="battleActions"></div><div class="battle-log" id="battleLog"></div></div>
+      </div>
+      <div class="pause-panel hidden" id="helpPanel"><button class="close-panel" id="closeHelp">×</button><div class="panel-kicker">GUIA DE SOBREVIVÊNCIA</div><h2>A cidade não perdoa.</h2><div class="controls-grid"><span><kbd>W A S D</kbd> / <kbd>↑ ↓ ← →</kbd></span><span>Move · oito direções</span><span><kbd>SHIFT</kbd></span><span>Correr</span><span><kbd>E</kbd></span><span>Conversar · usar · abrir</span><span><kbd>Q</kbd></span><span>Alternar personagem</span><span><kbd>R</kbd></span><span>Emboscada com Morgan</span><span><kbd>SPACE</kbd></span><span>Atacar durante a batalha</span></div><p class="help-note">Carlos hackeia terminais e portas lacradas. Procure sinais fora do mapa — o sensor de Morgan chia perto do que foi escondido. O braço de Gabriela abre paredes rachadas.</p><button class="resume-btn" id="resumeBtn">VOLTAR À RUA</button></div>
+      <div class="mobile-controls" aria-label="Touch controls"><div class="dpad"><button data-move="up">▲</button><div><button data-move="left">◀</button><button data-move="down">▼</button><button data-move="right">▶</button></div></div><div class="touch-actions"><button data-action="interact">E<br><small>USAR</small></button><button data-action="run">↗<br><small>CORRER</small></button></div></div>
+    </section>
+    <footer class="bottom-bar"><div class="footer-location"><span class="location-pulse"></span><span id="footerZone">VÁRZEA DO IPIRANGA</span><span class="footer-divider">—</span><span>MARÉ: SUBINDO</span></div><div class="footer-tip"><span class="tip-key">E</span> INTERAGIR <span class="footer-divider">·</span><span class="tip-key">Q</span> PERSONAGEM <span class="footer-divider">·</span><span class="tip-key">M</span> PAUSAR</div><div class="build-tag">BR-3027 <span>●</span> V. 1.0</div></footer>
+    <section class="roster" id="roster" aria-label="Party members"></section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
